@@ -1,0 +1,17 @@
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: Blueprint (deal 2/3, seed local-desktop-utility-app-3bf0·67376350·2026-10-28·r0)
+ * nav: top bar, wordmark and four sheet tabs, tool count at the right · footer: none, the status strip is the top bar's right end · signature: the file register, a keylined schedule with mono measurements
+ * states: idle, dragging, reading, empty, running, done, failed · blueprint: cyanotype sheet, Chakra Petch over IBM Plex Sans, mono measurements, radius 0
+ * axes: mid/geometric-sans/neutral · posture: drenched · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H4 E5 S4 R4 V4 · weakest: R, the register and the title block can both grow; held the side column to one panel plus a progress block */
+
+@import url("./tokens.css");
+@import url("./base.css");
+@import url("./shell.css");
+@import url("./ui.css");
+@import url("./convert.css");
+@import url("./compress.css");
+@import url("./download.css");
+@import url("./settings.css");
+/* Hallmark · waive 39b · app UI, the sheet's drop surface and the format cell · the drop zone is the target itself and the format cell carries a label with its extension */
+/* Hallmark · answered F3 · app heads are short single-line labels at every width, so balancing them changes nothing */
+@import url("./mobile.css");

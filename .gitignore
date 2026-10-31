@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# Rust / Tauri
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# Sidecars and native libs are fetched or built by scripts, not committed
+src-tauri/binaries/
+src-tauri/android-libs/
+
+# Build outputs and tool state
+*.apk
+*.aab
+.hallmark/

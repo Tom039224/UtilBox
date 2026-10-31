@@ -1,0 +1,190 @@
+/* Compress: the source readout on the left, one settings panel on the right. */
+
+.compress {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: var(--gap-columns);
+  align-items: start;
+}
+
+.compress__main,
+.compress__side {
+  display: grid;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+/* ---------- Source ---------- */
+
+.compress-file {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+.compress-file svg {
+  flex: none;
+  color: var(--color-muted);
+}
+.compress-file__name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.compress-file .tag { flex: none; }
+
+.compress-probing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+/* Label and measurement pairs, keylined. */
+.compress-readout th[scope="row"] {
+  width: 38%;
+  padding: var(--space-xs) 0;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-muted);
+  border-bottom: var(--rule-hair) solid var(--color-rule-3);
+  white-space: normal;
+}
+.compress-readout td {
+  padding: var(--space-xs) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule-3);
+  font-size: var(--text-sm);
+}
+.compress-readout tr:last-child th,
+.compress-readout tr:last-child td { border-bottom: 0; }
+.compress-readout tbody tr:hover { background: transparent; }
+
+/* ---------- Range ---------- */
+
+.compress-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--control-h);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.compress-range::-webkit-slider-runnable-track {
+  height: var(--rule-heavy);
+  background: var(--color-rule-2);
+  border: 0;
+}
+.compress-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin-top: calc(var(--space-2xs) * -2);
+  border: var(--rule-hair) solid var(--color-ink);
+  border-radius: 0;
+  background: var(--color-ink);
+  transition: background-color var(--dur-micro) var(--ease-out),
+    border-color var(--dur-micro) var(--ease-out);
+}
+.compress-range:hover::-webkit-slider-thumb {
+  background: var(--color-ink-2);
+  border-color: var(--color-ink-2);
+}
+.compress-range:active::-webkit-slider-thumb {
+  background: var(--color-muted);
+  border-color: var(--color-muted);
+}
+.compress-range::-moz-range-track {
+  height: var(--rule-heavy);
+  background: var(--color-rule-2);
+  border: 0;
+}
+.compress-range::-moz-range-thumb {
+  width: 10px;
+  height: 20px;
+  border: var(--rule-hair) solid var(--color-ink);
+  border-radius: 0;
+  background: var(--color-ink);
+  transition: background-color var(--dur-micro) var(--ease-out),
+    border-color var(--dur-micro) var(--ease-out);
+}
+.compress-range:hover::-moz-range-thumb {
+  background: var(--color-ink-2);
+  border-color: var(--color-ink-2);
+}
+.compress-range:active::-moz-range-thumb {
+  background: var(--color-muted);
+  border-color: var(--color-muted);
+}
+.compress-range:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.compress-range:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.compress-range:disabled::-webkit-slider-thumb { cursor: not-allowed; }
+.compress-range:disabled::-moz-range-thumb { cursor: not-allowed; }
+
+/* ---------- Result actions ---------- */
+
+.compress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.compress-actions__reset { margin-inline-start: auto; }
+
+/* ---------- Narrow ---------- */
+
+/* Four-choice segments fold into two rows before they can overflow. */
+@media (max-width: 26rem) {
+  .compress-seg {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .compress-seg .seg__btn:nth-child(-n + 2) {
+    border-bottom: var(--rule-hair) solid var(--color-rule-2);
+  }
+  .compress-seg .seg__btn:nth-child(odd) {
+    border-right: var(--rule-hair) solid var(--color-rule-2);
+  }
+}
+
+@media (max-width: 64rem) {
+  .compress { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 40rem) {
+  .compress-actions__reset { margin-inline-start: 0; }
+}
+
+/* A rail longer than the window keeps its action in place and scrolls its fields,
+   so the sheet's title block never covers the settings beneath it. */
+@media (min-width: 64rem) {
+  .compress__side > .panel:first-child {
+    position: sticky;
+    top: var(--space-md);
+    max-height: calc(100dvh - var(--topbar-h) - var(--space-md) * 2);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .compress__side > .panel:first-child .panel__body {
+    overflow-y: auto;
+    min-height: 0;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .compress__main .page-head { margin-bottom: 0; }
+}

@@ -1,0 +1,110 @@
+/* Mobile / Android: compact app bar on top, tab navigation as a bottom bar.
+   Rules apply to narrow viewports; `html.is-android` adds touch-only tuning. */
+
+:root {
+  --bottom-nav-h: 60px;
+}
+
+.tab__label--short { display: none; }
+.tab__icon { display: none; }
+.save-note { padding: var(--space-xs) var(--space-md) 0; }
+
+html.is-android {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  overscroll-behavior: none;
+}
+html.is-android body { -webkit-user-select: none; user-select: none; }
+html.is-android .mono, html.is-android .num, html.is-android input { -webkit-user-select: text; user-select: text; }
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+    --topbar-h: calc(48px + env(safe-area-inset-top, 0px));
+    --control-h: 44px;
+    --control-h-lg: 48px;
+  }
+
+  body { -webkit-text-size-adjust: 100%; }
+
+  .app {
+    grid-template-rows: var(--topbar-h) minmax(0, 1fr);
+  }
+
+  .topbar {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .topbar__inner { gap: var(--space-sm); }
+  .brand__name { display: inline; }
+  .topbar__status { display: flex; margin-inline-start: auto; font-size: var(--text-xs); }
+  .topbar .status-label, .topbar .divider { display: none; }
+
+  /* Tabs -> fixed bottom navigation */
+  .tabs {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: var(--z-sticky-nav);
+    height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    background: var(--color-paper-3);
+    border-top: var(--rule-hair) solid var(--color-rule-2);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 0;
+    overflow: visible;
+  }
+  .tab {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding-inline: 0;
+    min-height: var(--hit);
+    height: var(--bottom-nav-h);
+    font-size: var(--text-xs);
+    box-shadow: inset 0 2px 0 transparent;
+  }
+  .tab[aria-current="page"] { box-shadow: inset 0 2px 0 var(--color-ink); background: var(--color-paper-4); }
+  .tab__icon { display: block; }
+  .tab__label--full { display: none; }
+  .tab__label--short { display: inline; }
+
+  .main {
+    padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px) + var(--space-md));
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    overflow-x: hidden;
+  }
+
+  /* Touch targets and zoom-free inputs */
+  input, select, textarea { font-size: 16px; min-height: var(--hit); }
+  .btn, .btn--sm { min-height: var(--hit); height: auto; }
+  .btn--primary { min-height: 48px; }
+  .icon-btn, .icon-btn--sm { width: var(--hit); height: var(--hit); }
+  .icon-btn::after { inset: 0; }
+  .seg__btn { min-height: var(--hit); height: auto; }
+  .pick { min-height: var(--hit); }
+
+  /* Single column everywhere */
+  .convert, .compress, .download { grid-template-columns: minmax(0, 1fr); }
+  .convert__side { grid-template-columns: minmax(0, 1fr); }
+  .panel__body--split { grid-template-columns: minmax(0, 1fr); }
+  .settings-lower, .settings-spec__row { grid-template-columns: minmax(0, 1fr); }
+
+  .panel__head { flex-wrap: wrap; gap: var(--space-xs); }
+  .compress-actions { flex-wrap: wrap; }
+  .compress-actions .btn { flex: 1 1 auto; }
+
+  .dropzone { min-height: 180px; padding: var(--space-lg) var(--space-md); }
+  .dropzone--compact { min-height: 104px; }
+  .page-head { padding-block: var(--space-md); }
+
+  .modal-overlay { padding: 0; align-items: end; }
+  .modal { width: 100%; max-height: 88dvh; padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+  /* Wide tables: keep name + status, drop long text columns */
+  .settings-tools th:nth-child(2), .settings-tools td:nth-child(2),
+  .settings-tools th:nth-child(5), .settings-tools td:nth-child(5) { display: none; }
+  .table-wrap { overflow-x: hidden; }
+  .table td, .table th { word-break: break-word; }
+}

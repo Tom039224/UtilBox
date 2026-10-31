@@ -1,0 +1,154 @@
+/* Download: the URL field and the probed source on the left, one settings panel at 360px on the right. */
+
+.download {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: var(--gap-columns);
+  align-items: start;
+}
+
+.download__main,
+.download__side {
+  display: grid;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+/* URL field: input and probe button share one line and one height. */
+.download-bar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+.download-bar .input { flex: 1 1 auto; min-width: 0; }
+.download-bar .btn { flex: 0 0 auto; }
+
+/* Probed source: the thumbnail is keylined next to the title block. */
+.download-source {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--space-md);
+  align-items: start;
+  padding: var(--space-md);
+}
+
+.download-thumb {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border: var(--rule-hair) solid var(--color-rule-3);
+  background: var(--color-paper-3);
+  color: var(--color-muted);
+  overflow: hidden;
+}
+.download-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.download-source__text {
+  display: grid;
+  align-content: start;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+.download-source__title {
+  font-size: var(--text-lg);
+  line-height: 1.3;
+}
+
+.download-dl {
+  display: grid;
+  margin: 0;
+}
+.download-dl > div {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  align-items: baseline;
+  padding-block: var(--space-2xs);
+  border-bottom: var(--rule-hair) solid var(--color-rule-3);
+}
+.download-dl > div:last-child { border-bottom: 0; }
+.download-dl dt {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+.download-dl dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.download-dl dd.mono {
+  font-family: var(--font-outlier);
+  font-size: var(--text-xs);
+  color: var(--color-ink-2);
+}
+
+.download-marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+/* Segmented controls: the label stays sentence case, the pressed cell carries the line. */
+.download .seg__btn:active { background: var(--color-press); color: var(--color-ink); }
+.download .seg__btn[aria-pressed="true"]:active { background: var(--color-ink-2); }
+.download .seg__btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.download .seg__btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.download .seg__btn:disabled:hover { background: transparent; color: var(--color-muted); }
+
+/* Switches: the row is the target, the knob answers the press. */
+.download .switch-row:hover .switch { border-color: var(--color-rule); }
+.download .switch-row:active .switch__knob { opacity: 0.8; }
+.download .switch-row:has(input:disabled) { cursor: not-allowed; }
+
+/* States of the readout area. */
+.download-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.download-file {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.download-actions {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 64rem) {
+  .download { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 40rem) {
+  .download-source { grid-template-columns: minmax(0, 1fr); }
+  .download-dl > div { grid-template-columns: 6rem minmax(0, 1fr); }
+  .download-bar .btn { padding-inline: var(--space-xs); }
+}
+
+/* A rail longer than the window keeps its action in place and scrolls its fields,
+   so the sheet's title block never covers the settings beneath it. */
+@media (min-width: 64rem) {
+  .download__side > .panel:first-child {
+    position: sticky;
+    top: var(--space-md);
+    max-height: calc(100dvh - var(--topbar-h) - var(--space-md) * 2);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .download__side > .panel:first-child .panel__body {
+    overflow-y: auto;
+    min-height: 0;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .download__main .page-head { margin-bottom: 0; }
+}

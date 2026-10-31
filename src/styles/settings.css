@@ -1,0 +1,323 @@
+/* Settings: app spec at the top, the tool register below, update and references at the foot. */
+
+.settings {
+  display: grid;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+
+/* ---------- App spec ---------- */
+
+.settings-spec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-xl);
+  margin: 0;
+  min-width: 0;
+}
+
+.settings-spec__row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding-block: var(--space-xs);
+  border-bottom: var(--rule-hair) solid var(--color-rule-3);
+  min-width: 0;
+}
+
+.settings-spec__key {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.settings-spec__value--action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm) var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.settings-spec__path {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.settings-spec__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  flex-wrap: wrap;
+}
+
+.settings-spec__note {
+  margin: var(--space-xs) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.settings-spec__value {
+  margin: 0;
+  min-width: 0;
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Tool register ---------- */
+
+.settings-tools {
+  min-width: 980px;
+}
+
+.settings-tools th:nth-child(1) { width: 16rem; }
+.settings-tools th:nth-child(3) { width: 6rem; }
+.settings-tools th:nth-child(4) { width: 12rem; }
+.settings-tools th:nth-child(5) { width: 20rem; }
+
+.settings-tool-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.settings-tool-name .cell-name {
+  min-width: 0;
+}
+
+.settings-tool-purpose {
+  color: var(--color-muted);
+  min-width: 0;
+}
+
+.settings-state {
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.settings-state--off {
+  color: var(--color-muted);
+}
+
+.settings-tool-version {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-tools .settings-tool-path {
+  max-width: 28ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-outlier);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* ---------- yt-dlp update ---------- */
+
+.settings-update .panel__body {
+  gap: var(--space-sm);
+}
+
+.settings-update__desc {
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  max-width: 68ch;
+}
+
+.settings-update__action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.settings-update__action .field__note {
+  flex: 1 1 24ch;
+  min-width: 0;
+}
+
+/* ---------- Offline notes and credits ---------- */
+
+.settings-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.settings-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.settings-step {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.settings-step__num {
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  padding-top: var(--space-3xs);
+}
+
+.settings-step__text {
+  display: grid;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+.settings-step__title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.settings-step__body {
+  font-size: var(--text-md);
+  color: var(--color-muted);
+}
+
+.settings-credits__desc {
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  max-width: 62ch;
+}
+
+.settings-credits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  min-width: 0;
+}
+
+.settings-credits > li {
+  border-bottom: var(--rule-hair) solid var(--color-rule-3);
+  min-width: 0;
+}
+
+.settings-credits > li:last-child {
+  border-bottom: 0;
+}
+
+.settings-credit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-sm);
+  width: 100%;
+  min-height: var(--control-h);
+  padding: var(--space-xs);
+  text-align: left;
+  color: var(--color-ink);
+  transition: background-color var(--dur-micro) var(--ease-out),
+    color var(--dur-micro) var(--ease-out);
+}
+
+.settings-credit:hover {
+  background: var(--color-hover);
+}
+
+.settings-credit:active {
+  background: var(--color-press);
+}
+
+.settings-credit:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.settings-credit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.settings-credit:disabled:hover {
+  background: transparent;
+}
+
+.settings-credit__name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-rule-2);
+  text-underline-offset: 0.16em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings-credit__mark {
+  color: var(--color-muted);
+}
+
+.settings-credit__note {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---------- Widths ---------- */
+
+@media (max-width: 64rem) {
+  .settings-spec {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings-lower {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 60rem) {
+  .settings-tools { min-width: 0; }
+  .settings-tools th:nth-child(1) { width: auto; }
+
+  /* Keep the column that names the row and the one that states it. */
+  .settings-tools th:nth-child(2),
+  .settings-tools td:nth-child(2),
+  .settings-tools th:nth-child(5),
+  .settings-tools td:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .settings-tools th:nth-child(4),
+  .settings-tools td:nth-child(4) {
+    display: none;
+  }
+
+  .settings-spec__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xs);
+  }
+
+  .settings-credit {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .settings-credit__mark {
+    display: none;
+  }
+
+  .settings-credit__note {
+    text-align: left;
+    white-space: normal;
+  }
+}
