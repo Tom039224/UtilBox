@@ -40,10 +40,31 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": ["binaries/*"],
+    "resources": [
+      "binaries/*"
+    ],
     "linux": {
       "deb": {
-        "depends": ["libwebkit2gtk-4.1-0", "libgtk-3-0"]
+        "depends": [
+          "libwebkit2gtk-4.1-0",
+          "libgtk-3-0"
+        ],
+        "files": {
+          "/usr/share/doc/utilbox/LICENSE": "../LICENSE",
+          "/usr/share/doc/utilbox/LICENSING.md": "../LICENSING.md",
+          "/usr/share/doc/utilbox/THIRD_PARTY_NOTICES.md": "../THIRD_PARTY_NOTICES.md",
+          "/usr/share/doc/utilbox/LICENSES/GPL-2.0-only.txt": "../LICENSES/GPL-2.0-only.txt",
+          "/usr/share/doc/utilbox/LICENSES/GPL-3.0-or-later.txt": "../LICENSES/GPL-3.0-or-later.txt"
+        }
+      },
+      "appimage": {
+        "files": {
+          "/usr/share/doc/utilbox/LICENSE": "../LICENSE",
+          "/usr/share/doc/utilbox/LICENSING.md": "../LICENSING.md",
+          "/usr/share/doc/utilbox/THIRD_PARTY_NOTICES.md": "../THIRD_PARTY_NOTICES.md",
+          "/usr/share/doc/utilbox/LICENSES/GPL-2.0-only.txt": "../LICENSES/GPL-2.0-only.txt",
+          "/usr/share/doc/utilbox/LICENSES/GPL-3.0-or-later.txt": "../LICENSES/GPL-3.0-or-later.txt"
+        }
       }
     }
   }

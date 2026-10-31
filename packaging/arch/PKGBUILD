@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+#
+# Repackages the release .deb (which bundles FFmpeg, Pandoc and yt-dlp) for Arch Linux.
+# Build: place the .deb next to this file (or let makepkg download it), then run `makepkg -s`.
+pkgname=utilbox-bin
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Offline toolbox: file conversion, MP4 compression and YouTube download'
+arch=('x86_64')
+url='https://github.com/Tom039224/UtilBox'
+license=('GPL-2.0-only' 'BSD-3-Clause')
+depends=('webkit2gtk-4.1' 'gtk3')
+provides=('utilbox')
+conflicts=('utilbox')
+options=('!strip' '!debug')
+_deb="UtilBox_${pkgver}_amd64.deb"
+source=("${_deb}::${url}/releases/download/v${pkgver}/${_deb}")
+noextract=("${_deb}")
+sha256sums=('cbe50d56238244eedd1a8995c97c327f762b9ae860aa01254ac4e8f97c5e43cd')
+
+package() {
+  bsdtar -xOf "${srcdir}/${_deb}" 'data.tar.*' | bsdtar -xf - -C "${pkgdir}"
+  # The .deb ships the license texts under /usr/share/doc/utilbox.
+  install -d "${pkgdir}/usr/share/licenses/${pkgname}"
+  ln -s /usr/share/doc/utilbox/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  ln -s /usr/share/doc/utilbox/LICENSING.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSING.md"
+}
