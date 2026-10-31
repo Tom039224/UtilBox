@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 export type Codec = "h264" | "h265" | "av1" | "av1_gpu";
 
 export const QUALITY_PRESETS: Record<

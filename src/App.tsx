@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { TopBar, type Page } from "./components/TopBar";
 import { ConvertPage } from "./pages/ConvertPage";

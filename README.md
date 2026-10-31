@@ -202,7 +202,7 @@ bun tauri android build --debug --target aarch64 --apk
 adb install -r src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk
 ```
 
-同梱の FFmpeg は x264 / x265 を含む **GPL v3** ビルドです。
+同梱の FFmpeg は x264 / x265 を含む **GPL-3.0-or-later** ビルドです（ライセンスは下の「ライセンス / クレジット」を参照）。
 
 ---
 
@@ -222,18 +222,33 @@ adb install -r src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-u
 
 ## ライセンス / クレジット
 
-本アプリのコードは MIT License（`LICENSE`）。
+© 2026 Kirsikka (GitHub: Tom039224)
 
-同梱・利用する外部ツールはそれぞれのライセンスに従います。
+| 範囲 | ライセンス |
+| --- | --- |
+| 下記以外のすべて | **BSD 3-Clause**（[`LICENSE`](LICENSE)） |
+| ファイル変換機能（`convert.rs` / `ConvertPage.tsx` / `FormatPicker.tsx` / `convert.css`） | **GPL-2.0-only**（[`LICENSES/GPL-2.0-only.txt`](LICENSES/GPL-2.0-only.txt)） |
+| 同梱・利用する外部ツール | 各ツールのライセンス（[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)） |
+
+- ファイル変換機能は [p2r3/convert](https://github.com/p2r3/convert)（GPL-2.0）の
+  「媒体をまたいで何でも変換する」という発想に基づくため、同じ GPL としています。
+  上流が「or later」を付けていないので **GPL-2.0-only** です。
+- 配布するアプリは BSD のファイルと GPL のファイルを一緒にビルドするため、**配布物全体は GPL-2.0-only** として扱います。
+- 同梱の FFmpeg（x264 / x265 入り）は別プロセスとして起動する **GPL-3.0-or-later** のバイナリです。
+  アプリ本体のライセンスには影響しませんが、配布時は対応するソースを提供する必要があるため、
+  GitHub Releases に **ソース一式**（`utilbox-ffmpeg-android-source-*.tar.xz`）を添付しています。
+- 詳細は [`LICENSING.md`](LICENSING.md)。各ソースファイルには `SPDX-License-Identifier` を付けています。
+
+主な外部ツールのライセンス:
 
 | ツール | ライセンス |
 | --- | --- |
-| FFmpeg / FFprobe | LGPL-2.1+ / GPL（ビルドによる。配布物は GPL ビルド） |
+| FFmpeg / FFprobe | GPL-3.0-or-later（x264 / x265 入りビルド） |
 | ImageMagick | ImageMagick License |
 | LibreOffice | MPL-2.0 |
-| Pandoc | GPL-2.0+ |
+| Pandoc | GPL-2.0-or-later |
 | 7-Zip | LGPL-2.1+（unRAR 制限あり） |
-| Poppler | GPL-2.0+ |
+| Poppler | GPL-2.0-or-later |
 | yt-dlp | Unlicense |
 
 着想元: [p2r3/convert](https://github.com/p2r3/convert) — “Truly universal online file converter”.

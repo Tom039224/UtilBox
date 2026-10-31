@@ -24,5 +24,7 @@
     "@vitejs/plugin-react": "^5.1.0",
     "typescript": "^5.9.0",
     "vite": "^7.1.0"
-  }
+  },
+  "license": "SEE LICENSE IN LICENSING.md",
+  "author": "Kirsikka (Tom039224)"
 }

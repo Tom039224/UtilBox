@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 //! Universal file conversion engine.
 //!
 //! The engine is intentionally built on CLI tools (FFmpeg, ImageMagick,

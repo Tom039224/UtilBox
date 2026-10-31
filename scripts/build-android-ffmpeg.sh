@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 # Cross-compile static FFmpeg + FFprobe CLI for Android arm64-v8a (API 26) with the NDK.
 # Idempotent: downloads are cached in $ROOT/dl, each library leaves a stamp in $ROOT/stamps.
 # Output: $ROOT/out/libffmpeg.so and $ROOT/out/libffprobe.so (stripped PIE executables).

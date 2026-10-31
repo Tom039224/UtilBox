@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 import { useEffect, useState } from "react";
 import { Film, FolderOpen, Minimize2, Play, RefreshCw, X } from "lucide-react";
 import {

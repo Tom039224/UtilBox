@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 import { isAndroid } from "../lib/platform";
 import { ArrowLeftRight, Download, Minimize2, Wrench } from "lucide-react";
 

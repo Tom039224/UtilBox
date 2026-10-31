@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 //! YouTube (and other yt-dlp supported sites) downloading.
 //!
 //! Only the user explicitly starting a download/probe/update causes network

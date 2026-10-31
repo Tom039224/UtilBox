@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 fn main() {
     // Android 15+ may run with 16 KB pages; NDK r27 links with 4 KB alignment by default.
     if std::env::var("CARGO_CFG_TARGET_OS").as_deref() == Ok("android") {

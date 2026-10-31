@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 import { AlertCircle, CheckCircle2, Info, Loader2, X } from "lucide-react";
 import type { JobProgress } from "../lib/api";
 

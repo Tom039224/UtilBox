@@ -2,7 +2,8 @@
 name = "utilbox"
 version = "0.1.0"
 description = "Offline toolbox: universal file conversion, MP4 compression, YouTube download"
-authors = ["UtilBox"]
+authors = ["Kirsikka (Tom039224)"]
+license = "BSD-3-Clause AND GPL-2.0-only"
 edition = "2021"
 rust-version = "1.77.2"
 default-run = "utilbox"

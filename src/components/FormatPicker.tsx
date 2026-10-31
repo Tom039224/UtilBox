@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Search, X } from "lucide-react";
 import type { Category, FormatInfo } from "../lib/api";

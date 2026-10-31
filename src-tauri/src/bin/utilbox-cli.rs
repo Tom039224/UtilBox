@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 //! Small headless harness used to verify the conversion/compression engines
 //! without launching the GUI. Not part of the shipped UI.
 //!

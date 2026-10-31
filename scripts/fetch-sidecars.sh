@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 # Fetch the portable sidecars used by UtilBox and place them in src-tauri/binaries/.
 # Network access is only needed for this setup step.
 set -euo pipefail

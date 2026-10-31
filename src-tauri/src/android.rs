@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026 Kirsikka (GitHub: Tom039224)
+
 //! Android integration: file picking and publishing results.
 //!
 //! The engine only works with plain filesystem paths. On Android, user files

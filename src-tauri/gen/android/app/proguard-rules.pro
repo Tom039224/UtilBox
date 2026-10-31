@@ -19,3 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# UtilPlugin is instantiated from Rust through JNI and its commands are found by reflection.
+-keep class dev.utilbox.app.** { *; }
